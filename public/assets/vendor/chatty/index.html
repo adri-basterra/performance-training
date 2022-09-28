@@ -1,23 +1,23 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/assets/vendor/chatty/chatty.css">
+    <link rel="stylesheet" href="/assets/vendor/chatty/chatty.css" />
     <script src="/assets/vendor/chatty/bulky.js"></script>
   </head>
   <body>
     <div class="history">
       <div class="row row1 hide">
-        <div class="head"><img src="/assets/vendor/chatty/avatar.png" height="48" width="48" /></div>
+        <div class="head">
+          <img src="/assets/vendor/chatty/avatar.png" height="48" width="48" />
+        </div>
         <div class="bubble">
           <div class="name">Faux Marketson</div>
-          <div class="text">
-            Hey there! Can I help you find anything?
-          </div>
+          <div class="text">Hey there! Can I help you find anything?</div>
         </div>
       </div>
     </div>
 
     <div class="control">
-      <input type="text" placeholder="say something">
+      <input type="text" placeholder="say something" />
       <button type="button">Say</button>
     </div>
 
@@ -26,10 +26,9 @@
     </div>
 
     <script>
-      setTimeout(function() {
+      setTimeout(function () {
         document.querySelector(".row1").classList.remove("hide");
       }, 1500);
     </script>
-
   </body>
 </html>

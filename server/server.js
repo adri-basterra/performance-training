@@ -22,9 +22,10 @@ if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir, { recursive: true });
 }
 if (!fs.existsSync(logFile)) {
-  fs.writeFileSync(logFile, "time,url,dcl,load,fcp,lcp,cls,fid\n", { flag: "wx" });
+  fs.writeFileSync(logFile, "time,url,dcl,load,fcp,lcp,cls,fid\n", {
+    flag: "wx",
+  });
 }
-
 
 //
 // Server Basic Setup
@@ -36,14 +37,12 @@ server.use((req, res, next) => {
   setTimeout(next, config["server-delay"]);
 });
 
-
 //
 // Disable Asset Caching
 server.use((req, res, next) => {
   res.setHeader("Cache-Control", "no-store");
   next();
 });
-
 
 //
 // Performance API
@@ -56,20 +55,16 @@ server.post("/api/perf", bodyParser.json({ type: "*/*" }), (req, res, next) => {
     if (err) {
       console.error(err);
       res.sendStatus(500);
-    }
-    else {
+    } else {
       res.sendStatus(200);
     }
     next();
   });
-
 });
-
 
 //
 // Public file hosting
 server.use(express.static(publicDir, { etag: false }));
-
 
 //
 // Start Server
@@ -77,6 +72,6 @@ const port = parseInt(config["server-port"], 10);
 server.listen(port, () => {
   console.log(`Server is listening on http://localhost:${port}/`);
 });
-server.listen(port+1, () => {
-  console.log(`Server is listening on http://localhost:${port+1}/`);
+server.listen(port + 1, () => {
+  console.log(`Server is listening on http://localhost:${port + 1}/`);
 });
